@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XRep - User Reputation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            position: relative; /* Needed for absolute positioning of the admin button */
+        }
+        .admin-login {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+        .admin-login:hover {
+            background-color: #0056b3;
+        }
+        .form-wrapper {
+            margin-top: 60px;
+            width: 300px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: -5px 5px 0px 0px rgba(156,29,43,1),
+                        -10px 10px 0px 0px rgba(123,25,36,1),
+                        -15px 15px 0px 0px rgba(91,19,27,1),
+                        -20px 20px 0px 0px rgba(55,11,16,1),
+                        -25px 25px 0px 0px rgba(28,6,8,1);
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        input[type=text], input[type=submit], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            margin-bottom: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box; /* Ensures padding doesn't affect overall width */
+        }
+        input[type=submit] {
+            background-color: #9C1D2B;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type=submit]:hover {
+            background-color: #5B131B;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Admin Login Button -->
+    <a href="admin/admin.html" class="admin-login">Admin Login</a>
+
+    <!-- Form Wrapper for Lookup -->
+    <div class="form-wrapper">
+        <!-- Lookup Form -->
+        <form id="lookupForm" action="userdisplay.php" method="post">
+            <div class="form-group">
+                <input type="text" name="searchTerm" placeholder="Search by Steam Name" required>
+                <input type="submit" name="lookup" value="Lookup">
+            </div>
+        </form>
+    </div>
+
+    <!-- Form Wrapper for Submit -->
+    <div class="form-wrapper">
+        <!-- Steam Name and ID Form -->
+        <form id="steamForm" action="submit.php" method="post">
+            <div class="form-group">
+                <input type="text" name="steamName" placeholder="Steam Name" required>
+            </div>
+            <div class="form-group">
+                <input type="text" name="steam64ID" placeholder="Steam 64ID" required>
+            </div>
+            <div class="form-group">
+                <input type="text" name="games" placeholder="Games" required>
+            </div>
+            <div class="form-group">
+                <textarea name="notes" placeholder="Enter notes here" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <input type="submit" name="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
